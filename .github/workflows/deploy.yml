@@ -1,0 +1,68 @@
+name: CI/CD Pipeline for Hostinger (SSH)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Step 2: Set up Node.js (if you're deploying a Node.js app)
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v2
+    #   with:
+    #     node-version: '14'
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Run tests (if you have any)
+    - name: Run tests
+      run: npm test
+
+    # Step 5: Build the project (if applicable, for frontend apps like React, Vue, etc.)
+    - name: Build the project
+      run: npm run build
+
+    # Step 6: Upload build artifacts (optional, for debugging purposes)
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: build/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build  # This ensures deployment happens after a successful build
+    
+    steps:
+    # Step 1: Checkout code again for deploy
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Step 2: Set up SSH for deployment
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    # Step 3: Install rsync (optional, for syncing the build directory)
+    - name: Install rsync
+      run: sudo apt-get install rsync
+
+    # Step 4: Deploy to Hostinger via SSH using rsync
+    - name: Deploy to Hostinger via SSH
+      run: |
+        rsync -avz --delete --exclude '.git' --exclude 'node_modules' ./build/ ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:${{ secrets.HOSTINGER_PATH }}
+
