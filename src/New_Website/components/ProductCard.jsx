@@ -1,174 +1,103 @@
-import { useState } from 'react';
-import { Link ,useNavigate } from 'react-router-dom';
-import { ShoppingCart, Heart, Eye, Star } from 'lucide-react';
-import { addtoCart, getCarts, getSingleProductDetails, getAllProducts } from '../../api/user.api'
-import Swal from 'sweetalert2';
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+  Box,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
 
-const ProductCard = ({ product, showDescription = false }) => {  
-  const [isInCart, setIsInCart] = useState(false);
-  const user = useSelector((state) => state.auth);
-  const userId = user?.user?._id;
-  const [isHovered, setIsHovered] = useState(false); 
-  const {
-    _id,
-    name,
-    category,
-    mrp,
-    dp, pv,sp,
-    discountPrice,
-    images,
-    isNew,
-    isLimited,
-    description,
-  } = product;
-
-  const discountPercentage = discountPrice
-    ? Math.round(((mrp - discountPrice) / price) * 100)
-    : 0;
-
-
-
-    const handleAddToCart = async () => {
-
-    if (!userId) {
-      Swal.fire({
-        title: "Login Required",
-        text: "Please login to add items to the cart.",
-        icon: "warning",
-        confirmButtonColor: "#90479B",
-        confirmButtonText: "Login",
-      }).then(() => navigate("/login"));
-      return;
-    }
-
-    
-    if (status === false) {
-      Swal.fire({
-        title: "Profile Incomplete",
-        text: "Please complete your profile before adding items to cart.",
-        icon: "warning",
-        confirmButtonColor: "#90479B",
-        confirmButtonText: "Complete Profile",
-      }).then(() => navigate(Routers.Profile));
-      return;
-    }
-
-    const payload = {
-      productId: product._id,
-      userId: userId,
-      quantity: 1,
-    };
-
-    try {
-      const response = await addtoCart(payload);
-      if (response?.data) {
-        setIsInCart(true);
-        Swal.fire({
-          title: "Added to Cart",
-          text: "Product has been added to your cart.",
-          icon: "success",
-          confirmButtonColor: "#90479B",
-          confirmButtonText: "ok",
-        });
-      } else {
-        Swal.fire({
-          title: "Error",
-          text: response?.data?.message || "Something went wrong!",
-          icon: "error",
-        });
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-      Swal.fire({
-        title: "Error",
-        text: "Failed to add product to cart.",
-        icon: "error",
-      });
-    }
+  const toggleDescription = () => {
+    setIsExpanded(!isExpanded);
   };
 
-
+  const truncateDescription = (description, limit) => {
+    if (description.length <= limit) {
+      return description;
+    }
+    return description.substring(0, limit) + "...";
+  };
 
   return (
-    <div
-      className="card group h-full flex flex-col"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <Card
+      sx={{
+        maxWidth: 345,
+        margin: "auto",
+        boxShadow: 3,
+        borderRadius: 2,
+        transition: "transform 0.3s",
+        "&:hover": {
+          transform: "scale(1.05)",
+        },
+      }}
     >
-      <div className="relative overflow-hidden aspect-[3/4]">
-        <Link to={`/products/${_id}`}>
-          <img
-            src={images?.[0] || 'https://atlas-content-cdn.pixelsquid.com/assets_v2/260/2601734072459859015/previews/G03-200x200.jpg'}
-            alt={name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </Link>
-
-        <div className="absolute top-3 left-3 flex flex-col gap-2">
-          {discountPrice && (
-            <span className="badge-accent">{discountPercentage}% OFF</span>
-          )}
-          {isNew && <span className="badge-primary">NEW</span>}
-          {isLimited && <span className="badge-gold">LIMITED</span>}
-        </div>
-
-        <div
-          className={`absolute bottom-0 left-0 right-0 flex justify-center space-x-2 p-4 bg-white/80 backdrop-blur-sm transition-all duration-300 ${
-            isHovered ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}
+      <CardMedia
+        component="img"
+        height="200"
+        image={product.image}
+        alt={product.name}
+        sx={{
+          borderTopLeftRadius: 2,
+          borderTopRightRadius: 2,
+        }}
+      />
+      <CardContent>
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          sx={{ fontWeight: "bold" }}
         >
-          <button
-            className="p-2 rounded-full bg-white text-primary-600 hover:bg-primary-50 shadow-sm transition-colors"
-            aria-label="Add to wishlist"
+          {product.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {isExpanded
+            ? product.description
+            : truncateDescription(product.description, 100)}
+        </Typography>
+        {product.description.length > 100 && (
+          <Button
+            size="small"
+            onClick={toggleDescription}
+            sx={{
+              marginTop: 1,
+              color: "primary.main",
+              fontWeight: "bold",
+            }}
           >
-            <Heart size={18} />
-          </button>
-
-          {/* shopping card button  */}
-          <button
-            className="p-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 shadow-sm transition-colors"
-            aria-label="Add to cart"
-             onClick={handleAddToCart}
-          >
-            <ShoppingCart size={18} />
-          </button>
-          <Link
-            to={`/products/${_id}`}
-            className="p-2 rounded-full bg-white text-primary-600 hover:bg-primary-50 shadow-sm transition-colors"
-            aria-label="Quick view"
-          >
-            <Eye size={18} />
-          </Link>
-        </div>
-      </div>
-
-      <div className="p-4 flex flex-col flex-grow">
-        <span className="text-sm text-gray-500 mb-1">{category?.name}</span>
-
-        <Link to={`/products/${_id}`} className="hover:text-primary-600 transition-colors">
-          <h3 className="font-medium text-sm md:text-lg mb-2 line-clamp-2">{name}</h3>
-        </Link>
-
-        {showDescription && (
-          <p className="text-gray-600 text-xs md:text-sm mb-3 line-clamp-2">{description}</p>
+            {isExpanded ? "Read Less" : "Read More"}
+          </Button>
         )}
-
-        <div className="mt-auto flex items-center">
-          {dp ? (
-            <>
-              <span className="font-semibold text-lg">₹{dp?.toFixed(2)}</span>
-              <span className="text-gray-500 line-through text-sm ml-2">
-                ₹{mrp?.toFixed(2)}
-              </span>
-            </>
-          ) : (
-            <span className="font-semibold text-lg">₹ {mrp?.toFixed(2)}</span>
-          )}
-        </div>
-      </div>
-    </div>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: 2,
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", color: "#1F934A" }}
+          >
+            ₹{product.price}
+          </Typography>
+          <Button
+            variant="contained"
+            onClick={() => navigate("/login")}
+            sx={{ backgroundColor: "#1F934A", '&:hover': { backgroundColor: '#14753D' } }}
+          >
+            Add to Cart
+          </Button>
+        </Box>
+      </CardContent>
+    </Card>
   );
 };
 

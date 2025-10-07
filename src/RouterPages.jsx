@@ -89,6 +89,7 @@ import Tree from './UserPanel/pages/DownlineMembers/Tree';
 import FranchiseList from './Website/FranchiseList';
 import PriceList from './Website/PriceList';
 import FranchiseOrderHistory from './UserPanel/pages/Dashboard/FranchiseOrderHistory';
+import Product12 from './New_Website/pages/Product12';
 
 const RouterPages = () => {
     const dispatch = useDispatch();
@@ -136,6 +137,7 @@ const RouterPages = () => {
                    
 
                     <Route path="products" element={<ProductsPage />} />
+                    <Route path="products12" element={<Product12 />} />
                     <Route path="products/:id" element={<ProductDetailPage />} />
                     <Route path="collections" element={<Collection />} />
                     <Route path={Routers.Cart} element={<CartPage />} />

@@ -37,11 +37,11 @@ export const NewProductCard =({ name, price, image, reviews = 2145 }) => {
             className="text-2xl font-bold text-chart-2"
             data-testid={`text-price-${name.toLowerCase().replace(/\s+/g, '-')}`}
           >
-            ${price}
+            {/* {price} */}
           </span>
-          <Button data-testid={`button-add-to-cart-${name.toLowerCase().replace(/\s+/g, '-')}`}>
+          {/* <Button data-testid={`button-add-to-cart-${name.toLowerCase().replace(/\s+/g, '-')}`}>
             Add to Cart
-          </Button>
+          </Button> */}
         </div>
       </CardFooter>
     </Card>

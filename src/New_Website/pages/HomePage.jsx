@@ -186,9 +186,6 @@ import { Badge } from "../../New_Website/uidata/badge";
 import { Leaf, Heart, Sparkles, Shield, DollarSign, Headphones } from "lucide-react";
 
 // import soapImage from "../assets/generated_images/Herbal_soap_product_image_60ebd8f7.png";
-import soapImage from  "../../../attached_assets/generated_images/Herbal_soap_product_image_60ebd8f7.png";
-
-import vitaminImage from "../../../attached_assets/generated_images/Vitamin_supplement_product_image_f6d5887a.png";
 import teaImage from "../../../attached_assets/generated_images/Green_tea_category_image_5ec69284.png";
 import tabletsImage from "../../../attached_assets/generated_images/Supplement_tablets_category_image_b7f4c86c.png";
 import oilImage from "../../../attached_assets/generated_images/Body_care_oil_image_2eb67096.png";
@@ -212,6 +209,7 @@ import FeatureCard from "./FeatureCard";
 import TestimonialCard from "./TestimonialCard";
 import BlogCard from "./BlogCard";
 import Newsletter from './Newsletter'
+import Product12 from "./Product12";
 
 const HomePage = () => {
   return (
@@ -220,28 +218,26 @@ const HomePage = () => {
       <HeroSection />
 
       {/* Products */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            <NewProductCard name="Hygienic Soap" price={19} image={soapImage} />
-            <NewProductCard name="Vitamins" price={25} image={vitaminImage} />
-          </div>
-        </div>
-      </section>
-
-      {/* Categories */}
-      <section className="py-16 bg-[#EFECE7]">
+      {/* <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold mb-4">Product Categories</h2>
+            <h2 className="font-serif text-4xl font-bold mb-4">Featured Products</h2>
             <p className="text-muted-foreground">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <CategoryCard name="Eatables" image={teaImage} />
-            <CategoryCard name="Strengths" image={tabletsImage} />
-            <CategoryCard name="Body Care" image={oilImage} />
+          <Product12 />
+        </div>
+      </section> */}
+
+      {/* Categories */}
+      <section className="py-4 bg-[#EFECE7]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-12">
+           
+          </div>
+          <div className="">
+            <Product12 />
           </div>
         </div>
       </section>
@@ -268,9 +264,9 @@ const HomePage = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
-            <NewProductCard name="Purifying Clay Mask" price={19} image={clayMaskImage} />
-            <NewProductCard name="Moisturizer" price={25} image={moisturizerImage} />
-            <NewProductCard name="Rosemary Balm" price={20} image={rosemaryImage} />
+            <NewProductCard name="Purifying Clay Mask"  image={clayMaskImage} />
+            <NewProductCard name="Moisturizer"  image={moisturizerImage} />
+            <NewProductCard name="Rosemary Balm" image={rosemaryImage} />
             <NewProductCard name="Body Cream" price={25} image={bodyCreamImage} />
           </div>
           <div className="text-center mt-8">
@@ -320,8 +316,8 @@ const HomePage = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-2 gap-6">
-              <NewProductCard name="Clay Mask" price={19} image={clayMaskImage} />
-              <NewProductCard name="Moisturizer" price={25} image={moisturizerImage} />
+              <NewProductCard name="Clay Mask"  image={clayMaskImage} />
+              <NewProductCard name="Moisturizer"  image={moisturizerImage} />
             </div>
             <img src={decorativeArrangement} alt="Featured products" className="w-full rounded-lg" />
           </div>
