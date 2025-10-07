@@ -18,17 +18,17 @@ export const backendConfig = {
   // base: "https://adm.api.smartchainstudio.in/api",
   // origin: "https://adm.api.smartchainstudio.in",
   
-  // base: "https://api.uniquedirectselling.in/api",
-  // origin: "https://api.uniquedirectselling.in",
+  base: "https://herbaliferise-backend-main.onrender.com/api",
+  origin: "https://herbaliferise-backend-main.onrender.com/",
 
-  origin: "http://localhost:6067/api",
-  base: "http://localhost:6067/api",
+  // origin: "http://localhost:6067/api",
+  // base: "http://localhost:6067/api",
 };
 
 export const backendConfig1 = {
-  // origin: "https://api.uniquedirectselling.in",
+  origin: "https://api.uniquedirectselling.in",
   // origin: "https://adm.api.smartchainstudio.in",
-  origin: "http://localhost:6067/api",
+  // origin: "http://localhost:6067/api",
 };
 
 
@@ -50,5 +50,3 @@ Axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
-

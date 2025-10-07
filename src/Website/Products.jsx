@@ -54,7 +54,7 @@ const Products = () => {
                         >
 
                             <div clas sName="w-full min-h-44 flex items-center justify-center bg-gray-100 rounded-xl">
-                                <img src={product?.defaultImage}
+                                <img src={`${backendConfig1.origin}/${product?.defaultImage}`}
                                     alt="Product"
                                     className="w-full h-56 object-cover rounded-xl" />
                             </div>

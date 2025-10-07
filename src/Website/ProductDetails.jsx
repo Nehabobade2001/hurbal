@@ -138,13 +138,13 @@ const ProductDetails = () => {
             <div className="grid md:grid-cols-2 grid-cols-1  md:p-10 gap-5 md:gap-10">
                 <div className="flex flex-col items-center justify-center gap-4">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden border box-shadow">
-                        <img src={`${backendConfig1?.origin}${selectedImage}`} alt={product.productName} className="w-full h-full object-cover" />
+                        <img src={`${backendConfig1.origin}/${selectedImage}`} alt={product.productName} className="w-full h-full object-cover" />
                     </div>
                     <div className="flex gap-2 top-2 left-2">
                         {product.images.slice(0, 5).map((img, index) => (
                             <img
                                 key={index}
-                                src={`${backendConfig1?.origin}${img}`}
+                                src={`${backendConfig1.origin}/${img}`}
                                 alt="Thumbnail"
                                 className={`xl:w-20 xl:h-16 h-8 w-9 md:w-14 md:h-10 lg:w-16 lg:h-14 border-2 object-cover rounded cursor-pointer ${selectedImage === img ? "border-[#90479B]" : ""}`}
                                 onClick={() => setSelectedImage(img)}
@@ -191,7 +191,7 @@ const ProductDetails = () => {
                         >
                             <div className="w-full min-h-44 flex items-center justify-center bg-gray-100 rounded-xl">
                                 <img
-                                    src={backendConfig1?.origin + product?.defaultImage}
+                                    src={`${backendConfig1.origin}/${product?.defaultImage}`}
                                     alt="Product"
                                     className="w-full h-56 object-cover rounded-xl"
                                 />
