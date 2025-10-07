@@ -79,7 +79,7 @@ export const products = [
   {
     id: 12,
     name: "Herbal Night Cream",
-    description: "A nourishing night cream that works while you sleep to repair and rejuvenate your skin. It is a perfect blend of natural ingredients that help in reducing fine lines and wrinkles, improving skin elasticity, and providing a youthful glow.",
+    description: "A nourishing night cream that works while you sleep to repair and rejuvenate your skin. It is a perfect blend of natural ingredients that help rinkles, improving skin elasticity, and providing a youthful glow.",
     price: "2799",
     image: "/attached_assets/generated_images/hurbal12.jpeg",
   },
