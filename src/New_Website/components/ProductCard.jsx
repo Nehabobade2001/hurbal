@@ -8,6 +8,33 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import hurbal1 from "/attached_assets/generated_images/hurbal1.jpeg";
+import hurbal2 from "/attached_assets/generated_images/hurbal2.jpeg";
+import hurbal3 from "/attached_assets/generated_images/hurbal3.jpeg";
+import hurbal4 from "/attached_assets/generated_images/hurbal4.jpeg";
+import hurbal5 from "/attached_assets/generated_images/hurbal5.jpeg";
+import hurbal6 from "/attached_assets/generated_images/hurbal6.jpeg";
+import hurbal7 from "/attached_assets/generated_images/hurbal7.jpeg";
+import hurbal8 from "/attached_assets/generated_images/hurbal8.jpeg";
+import hurbal9 from "/attached_assets/generated_images/hurbal9.jpeg";
+import hurbal10 from "/attached_assets/generated_images/hurbal10.jpeg";
+import hurbal11 from "/attached_assets/generated_images/hurbal11.jpeg";
+import hurbal12 from "/attached_assets/generated_images/hurbal12.jpeg";
+
+const imageMap = {
+  "/attached_assets/generated_images/hurbal1.jpeg": hurbal1,
+  "/attached_assets/generated_images/hurbal2.jpeg": hurbal2,
+  "/attached_assets/generated_images/hurbal3.jpeg": hurbal3,
+  "/attached_assets/generated_images/hurbal4.jpeg": hurbal4,
+  "/attached_assets/generated_images/hurbal5.jpeg": hurbal5,
+  "/attached_assets/generated_images/hurbal6.jpeg": hurbal6,
+  "/attached_assets/generated_images/hurbal7.jpeg": hurbal7,
+  "/attached_assets/generated_images/hurbal8.jpeg": hurbal8,
+  "/attached_assets/generated_images/hurbal9.jpeg": hurbal9,
+  "/attached_assets/generated_images/hurbal10.jpeg": hurbal10,
+  "/attached_assets/generated_images/hurbal11.jpeg": hurbal11,
+  "/attached_assets/generated_images/hurbal12.jpeg": hurbal12,
+};
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -40,7 +67,7 @@ const ProductCard = ({ product }) => {
       <CardMedia
         component="img"
         height="200"
-        image={product.image}
+        image={imageMap[product.image]}
         alt={product.name}
         sx={{
           borderTopLeftRadius: 2,
