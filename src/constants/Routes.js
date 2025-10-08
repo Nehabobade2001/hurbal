@@ -57,6 +57,11 @@ export const Routers = {
   AddFund: "/user-dashboard/add-fund",
   FundHistory: "/user-dashboard/fund-history",
   order_form: "/user-dashboard/order-form",
+  MePage: "/user-dashboard/me",
+  SalaryPlan: "/user-dashboard/salary-plan",
+  FranchiseeIncome: "/user-dashboard/franchisee-income",
+  TravelRewards: "/user-dashboard/travel-rewards",
+  WalletBalance: "/user-dashboard/new-wallet-balance",
 
 
   // --------------------------------

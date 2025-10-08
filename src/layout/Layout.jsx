@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 
 import { FaAddressCard, FaHome, FaSignOutAlt, FaUser, FaWallet } from "react-icons/fa";
-import { IoIosArrowDown, IoIosArrowForward, IoIosNotificationsOutline } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { MainContent } from "../constants/mainContent";
 import defaultProfile from "../assets/manageMembers/defaultProfile.png";
 import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
 import { useDispatch, useSelector } from 'react-redux';
-import { loginSuccess, logout } from '../Redux/Reducer/authReducer';
+import { logout } from '../Redux/Reducer/authReducer';
 import { persistor } from '../Redux/store';
 import { Routers } from '../constants/Routes';
 import Swal from 'sweetalert2';
-import { AiOutlineCloseCircle, AiOutlineTeam, AiTwotoneCloseCircle } from 'react-icons/ai';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { GoIssueClosed } from 'react-icons/go';
-import { getProfile } from '../api/user.api';
 import Footer from '../Component/Footer';
 import { FaUserGroup } from 'react-icons/fa6';
 import { CgAdd, CgProfile } from 'react-icons/cg';
@@ -116,6 +115,17 @@ const Layout = () => {
     },
     { path: Routers.Epin, label: "Wallet Balance", icon: <MdAccountBalance /> },
     { path: Routers.Events, label: "Events", icon: <MdEmojiEvents /> },
+    {
+      label: "All Plan",
+      icon: <FaUserGroup />,
+      subRoutes: [
+        { path: Routers.MePage, label: "Instant Benefits", icon: <TiGroup /> },
+        { path: Routers.SalaryPlan, label: "Salary Plan", icon: <TiGroup /> },
+        { path: Routers.FranchiseeIncome, label: "Franchisee Income", icon: <TiGroup /> },
+        // { path: Routers.TravelRewards, label: "Travel Rewards", icon: <TiGroup /> },
+        { path: Routers.WalletBalance, label: "Travel Rewards", icon: <TiGroup /> },
+      ],
+    },
     // { path: Routers.CreateDistributor, label: "Create Distributor", icon: <FaHome /> },
     // { path: Routers.Wallet, label: "Income History", icon: <FaHome /> },
   ];

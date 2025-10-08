@@ -67,6 +67,11 @@ import OrderForm from './UserPanel/pages/OrderForm';
 import E_pinList from './UserPanel/pages/E-pin/E_pinList';
 import WalletPage from './UserPanel/pages/Wallet/WalletPage';
 import Events from './UserPanel/pages/Events/Events';
+import MePage from './UserPanel/pages/MePage';
+import SalaryPlan from './UserPanel/pages/SalaryPlan';
+import FranchiseeIncome from './UserPanel/pages/FranchiseeIncome';
+import TravelRewards from './UserPanel/pages/TravelRewards';
+import WalletBalance from './UserPanel/pages/WalletBalance';
 
   
 import ApproveDistributorsOrder from './FranchisePanel/DistributorSales/ApproveDistributorsOrder';
@@ -197,6 +202,11 @@ const RouterPages = () => {
                         <Route path={Routers.OrderHistory} element={<OrderHistory />} />
                         <Route path={Routers.FranchiseOrderHistory} element={<FranchiseOrderHistory />} />
                         <Route path={Routers.order_form} element={<OrderForm />} />
+                        <Route path="me" element={<MePage />} />
+                        <Route path="salary-plan" element={<SalaryPlan />} />
+                        <Route path="franchisee-income" element={<FranchiseeIncome />} />
+                        <Route path="travel-rewards" element={<TravelRewards />} />
+                        <Route path="new-wallet-balance" element={<WalletBalance />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 )}
