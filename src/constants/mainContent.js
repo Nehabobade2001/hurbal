@@ -18,11 +18,11 @@ export const backendConfig = {
   // base: "https://adm.api.smartchainstudio.in/api",
   // origin: "https://adm.api.smartchainstudio.in",
   
-  // base: "https://herbaliferise-backend-main.onrender.com/api",
-  // origin: "https://herbaliferise-backend-main.onrender.com/",
+  base: "https://herbaliferise-backend-main.onrender.com/api",
+  origin: "https://herbaliferise-backend-main.onrender.com/",
 
-  origin: "http://localhost:6067/api",
-  base: "http://localhost:6067/api",
+  // origin: "http://localhost:6067/api",
+  // base: "http://localhost:6067/api",
 };
 
 export const backendConfig1 = {
