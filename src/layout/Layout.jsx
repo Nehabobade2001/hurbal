@@ -251,13 +251,13 @@ const Layout = () => {
           ))}
         </div>
         
-        <div className="p-4 flex justify-between items-center text-center font-medium text-xl">
+        {/* <div className="p-4 flex justify-between items-center text-center font-medium text-xl">
           <img
             src={MainContent.logo1}
             alt="Bionova Logo"
             className="w-[120px] h-[100px] object-contain"
           />
-        </div>
+        </div> */}
       </div>
       <div className={`hidden md:block h-full w-2 bg-bg-color absolute top-0 ${isSidebarOpen ? "-left-full" : "left-0"
           }`} >

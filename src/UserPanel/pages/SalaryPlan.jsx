@@ -1,11 +1,14 @@
 import React from 'react';
 import InstantBenefitsTable from './InstantBenefitsTable';
+import WalletComponentCard from './E-pin/Wallet_Component';
 
 const SalaryPlan = () => {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Salary Plan</h1>
-      <InstantBenefitsTable />
+    
+       <div className='flex flex-col gap-5'>
+           <h1 className="text-2xl font-bold mb-4"> Reward Balance</h1>
+           <WalletComponentCard />
+        
     </div>
   );
 };

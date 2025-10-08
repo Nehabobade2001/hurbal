@@ -275,7 +275,7 @@ const DistributorRegister = () => {
             <Button
               title="Search"
               onClick={() => fetchSponsorDetails(formData.sponsorId)}
-              className="bg-blue-600 text-white px-4 py-2 rounded h-[38px]"
+              className="bg-green-600 text-white px-4 py-2 rounded h-[38px]"
             />
           </div>
           <InputField
@@ -413,7 +413,7 @@ const DistributorRegister = () => {
           <Button
             title="Register"
             onClick={sendVerifyEmailHandler}
-            className="bg-blue-600 text-white px-6 py-2 rounded"
+            className="bg-green-600 text-white px-6 py-2 rounded"
           />
           <Link to={Routers.Login} className="text-sm underline text-blue-500">
             Login Now

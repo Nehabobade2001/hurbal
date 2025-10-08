@@ -148,11 +148,11 @@ const Login = () => {
   className="min-h-screen w-full bg-cover bg-center flex items-center justify-center px-4 py-10"
 >
   <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-8">
-    <img
+    {/* <img
       src={MainContent.logo1}
       className="h-40x` object-contain"
       alt="Logo"
-    />
+    /> */}
 
     <div className="w-full grid md:grid-cols-2 gap-8">
       {/* User Login */}
@@ -200,7 +200,7 @@ const Login = () => {
           <Button
             title={submitting ? "Logging in..." : "Login"}
             disabled={submitting}
-            className="bg-primary-500 px-4 py-3 text-sm  rounded-md text-white text-center w-full disabled:opacity-50"
+            className="bg-green-500 px-4 py-3 text-sm  rounded-md text-white text-center w-full disabled:opacity-50"
             onClick={handleSubmit}
           />
 
@@ -256,7 +256,7 @@ const Login = () => {
           <Button
             title={franchiseSubmit ? "Logging in..." : "Franchise Login"}
             disabled={franchiseSubmit}
-            className="bg-primary-500 px-4 py-3 text-sm  rounded-md text-white text-center w-full disabled:opacity-50"
+            className="bg-green-500 px-4 py-3 text-sm  rounded-md text-white text-center w-full disabled:opacity-50"
             onClick={handleSubmit1}
           />
         </div>

@@ -110,9 +110,9 @@ const Navbar = () => {
                 </span> */}
               </button>
             </Link>
-            <button className="md:hidden" onClick={toggleMenu} aria-label="Menu">
+            {/* <button className="md:hidden" onClick={toggleMenu} aria-label="Menu">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </button> */}
 
             <button
               onClick={handleAuthAction}

@@ -1,11 +1,12 @@
 import React from 'react';
+import WalletComponentCard from './E-pin/Wallet_Component';
 import InstantBenefitsTable from './InstantBenefitsTable';
 
 const MePage = () => {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Me Page</h1>
-      <InstantBenefitsTable />
+    <div className='flex flex-col gap-5'>
+      <h1 className="text-2xl font-bold mb-4">Instant Benefit</h1>
+        <InstantBenefitsTable/>
     </div>
   );
 };
