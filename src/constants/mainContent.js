@@ -19,14 +19,14 @@ export const backendConfig = {
   // origin: "https://adm.api.smartchainstudio.in",
   
   base: "https://herbaliferise-backend-main.onrender.com/api",
-  origin: "https://herbaliferise-backend-main.onrender.com/",
+  origin: "https://herbaliferise-backend-main.onrender.com",
 
   // origin: "http://localhost:6067/api",
   // base: "http://localhost:6067/api",
 };
 
 export const backendConfig1 = {
-  origin: "https://api.uniquedirectselling.in",
+  origin: "https://herbaliferise-backend-main.onrender.com",
   // origin: "https://adm.api.smartchainstudio.in",
   // origin: "http://localhost:6067/api",
 };
